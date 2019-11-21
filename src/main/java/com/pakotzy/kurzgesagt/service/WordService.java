@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 /**
  * Created by P. Kot on 29-Sep-19.
  */
@@ -19,12 +21,12 @@ public class WordService implements IWordService {
   }
 
   @Override
-  public void create(Word word) {
-    wordRepository.save(word).subscribe();
+  public Mono<Word> create(Word word) {
+    return wordRepository.save(word);
   }
 
   @Override
-  public Mono<Word> findById(long id) {
+  public Mono<Word> findById(UUID id) {
     return wordRepository.findById(id);
   }
 
@@ -44,7 +46,7 @@ public class WordService implements IWordService {
   }
 
   @Override
-  public Mono<Void> delete(long id) {
+  public Mono<Void> delete(UUID id) {
     return wordRepository.deleteById(id);
   }
 }

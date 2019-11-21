@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 /**
  * Created by P. Kot on 29-Sep-19.
  */
@@ -21,13 +23,13 @@ public class WordController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public void create(@RequestBody Word word) {
-    wordService.create(word);
+  public Mono<Word> create(@RequestBody Word word) {
+    return wordService.create(word);
   }
 
   @GetMapping("{id}")
-  public Mono<Word> findById(@PathVariable Long id) {
-    return wordService.findById(id);
+  public Mono<Word> findById(@PathVariable String id) {
+    return wordService.findById(UUID.fromString(id));
   }
 
   @GetMapping

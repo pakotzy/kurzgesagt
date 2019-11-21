@@ -3,25 +3,27 @@ package com.pakotzy.kurzgesagt.persistence.model;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 /**
  * Created by P. Kot on 29-Sep-19.
  */
 
 @Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
-@Document
 public class Word {
   @Id
-  private long id;
+  private UUID id;
 
+  @NotNull
   private String word;
 
-  public long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

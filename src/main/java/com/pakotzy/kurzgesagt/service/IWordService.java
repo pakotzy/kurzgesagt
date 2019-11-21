@@ -4,14 +4,16 @@ import com.pakotzy.kurzgesagt.persistence.model.Word;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 /**
  * Created by P. Kot on 29-Sep-19.
  */
 
 public interface IWordService {
-  void create(Word word);
+  Mono<Word> create(Word word);
 
-  Mono<Word> findById(long id);
+  Mono<Word> findById(UUID id);
 
   Flux<Word> findByName(String name);
 
@@ -19,5 +21,5 @@ public interface IWordService {
 
   Mono<Word> update(Word word);
 
-  Mono<Void> delete(long id);
+  Mono<Void> delete(UUID id);
 }
