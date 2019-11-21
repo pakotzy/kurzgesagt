@@ -1,7 +1,5 @@
 package com.pakotzy.kurzgesagt.persistence.model;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
@@ -11,7 +9,6 @@ import java.util.UUID;
  * Created by P. Kot on 29-Sep-19.
  */
 
-@Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Word {
   @Id
   private UUID id;
