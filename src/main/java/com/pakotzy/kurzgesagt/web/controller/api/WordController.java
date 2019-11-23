@@ -1,4 +1,4 @@
-package com.pakotzy.kurzgesagt.web.controller;
+package com.pakotzy.kurzgesagt.web.controller.api;
 
 import com.pakotzy.kurzgesagt.persistence.model.Word;
 import com.pakotzy.kurzgesagt.service.WordService;

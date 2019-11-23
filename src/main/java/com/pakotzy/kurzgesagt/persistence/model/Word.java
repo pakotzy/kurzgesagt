@@ -1,6 +1,7 @@
 package com.pakotzy.kurzgesagt.persistence.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
@@ -9,6 +10,7 @@ import java.util.UUID;
  * Created by P. Kot on 29-Sep-19.
  */
 
+@Table
 public class Word {
   @Id
   private UUID id;
