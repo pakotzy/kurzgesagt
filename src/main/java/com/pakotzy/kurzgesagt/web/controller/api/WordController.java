@@ -29,12 +29,12 @@ public class WordController {
 
   @GetMapping("{id}")
   public Mono<Word> findById(@PathVariable String id) {
-    return wordService.findById(UUID.fromString(id));
+    return wordService.get(UUID.fromString(id));
   }
 
   @GetMapping
   public Flux<ServerSentEvent<Word>> findAll() {
-    return wordService.findAll().map(word -> ServerSentEvent.<Word>builder()
+    return wordService.get().map(word -> ServerSentEvent.<Word>builder()
         .id(String.valueOf(word.getId()))
         .event("periodic-event")
         .data(word)

@@ -13,11 +13,11 @@ import java.util.UUID;
 public interface IWordService {
   Mono<Word> create(Word word);
 
-  Mono<Word> findById(UUID id);
+  Mono<Word> get(UUID id);
 
-  Flux<Word> findByName(String name);
+  Flux<Word> get(String name);
 
-  Flux<Word> findAll();
+  Flux<Word> get();
 
   Mono<Word> update(Word word);
 

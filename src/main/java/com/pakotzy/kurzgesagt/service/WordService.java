@@ -26,17 +26,17 @@ public class WordService implements IWordService {
   }
 
   @Override
-  public Mono<Word> findById(UUID id) {
+  public Mono<Word> get(UUID id) {
     return wordRepository.findById(id);
   }
 
   @Override
-  public Flux<Word> findByName(String name) {
+  public Flux<Word> get(String name) {
     return wordRepository.findByName(name);
   }
 
   @Override
-  public Flux<Word> findAll() {
+  public Flux<Word> get() {
     return wordRepository.findAll();
   }
 
